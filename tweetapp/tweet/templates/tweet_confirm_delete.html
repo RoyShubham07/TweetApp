@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+Home - TweetApp
+{% endblock %}
+
+{% block content %}
+<h1 class="mt-4 text-center">Are you sure you want to delete this tweet?</h1>
+<div style="width: 18rem; margin: auto;">
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger mt-4 me-2" >Yes, Delete</button>
+    <a href="{% url 'tweet_list' %}" class="btn btn-success mt-4">No, Cancel</a>
+</form>
+</div>
+{% endblock %}

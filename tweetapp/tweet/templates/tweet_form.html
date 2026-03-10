@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}
+Home - TweetApp
+{% endblock %}
+
+{% block content %}
+<h1 class="mt-4 text-center">Welcome to TweetApp!</h1>
+<p class="lead text-center">This is a simple Twitter-like application built with Django.</p>
+<h2> 
+    {% if form.instance.pk %}
+    Edit Tweet
+    {% else %}
+    Create New Tweet
+    {% endif %}
+    <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-warning">Submit</button>
+    </form>
+    <a href="{% url 'tweet_list' %}" class="btn btn-secondary mt-2">Back to Tweet List</a>
+</h2> 
+{% endblock %}
